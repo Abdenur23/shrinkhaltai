@@ -78,6 +78,7 @@
       letter-spacing: -0.02em;
       line-height: 1.2;
       color: #0b3b4b;
+      max-width: 900px;
     }
     h2 {
       font-size: 2rem;
@@ -103,6 +104,12 @@
     }
     .hero-highlight {
       color: #1a8a72;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      line-height: 1.5;
+      max-width: 780px;
+      margin-top: 16px;
     }
 
     .grid-2cols {
@@ -255,48 +262,54 @@
     footer {
       background: #0b2d3a;
       color: #cce3ec;
-      padding: 48px 0 28px;
+      padding: 48px 0 32px;
       margin-top: 70px;
     }
-    .footer-flex {
+    .footer-simple {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 32px;
+      align-items: center;
+      gap: 24px;
     }
     .footer-logo {
       font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       background: linear-gradient(120deg, #b7e0d6, #87cfbf);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
     }
+    .footer-address {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #c6e0ea;
+    }
     .footer-note {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-align: center;
       margin-top: 40px;
-      padding-top: 24px;
+      padding-top: 20px;
       border-top: 1px solid #2a5e6e;
-    }
-    .contact-text {
-      font-size: 0.85rem;
-      color: #bbdce8;
     }
     a {
       text-decoration: none;
     }
 
-    /* Mobile improvements */
+    /* Mobile refinements */
     @media (max-width: 768px) {
       .container {
         padding: 0 20px;
       }
       h1 {
         font-size: 2.2rem;
+        max-width: 100%;
       }
       h2 {
         font-size: 1.7rem;
+      }
+      .hero p {
+        font-size: 1rem;
       }
       .navbar {
         flex-direction: column;
@@ -311,23 +324,16 @@
       .process-steps {
         flex-direction: column;
       }
-      .hero {
-        padding: 32px 0 20px;
-      }
-      .feature-card {
-        padding: 22px;
-      }
-      .why-grid {
-        gap: 24px;
-      }
-      .integration-row {
+      .footer-simple {
+        flex-direction: column;
+        align-items: flex-start;
         gap: 16px;
       }
     }
 
     @media (max-width: 480px) {
       h1 {
-        font-size: 1.9rem;
+        font-size: 1.85rem;
       }
       .stat-number {
         font-size: 2rem;
@@ -355,10 +361,8 @@
 <main>
   <div class="container hero">
     <div class="badge">Edge‑native AI + remote human review</div>
-    <h1>Your team should focus on customers, not surveillance monitors.<br> 
-      <span class="hero-highlight">ShrinkHalt AI + human reviewers</span> handle loss prevention in the background.
-    </h1>
-    <p class="section-subhead">Hybrid system: skeleton‑based action detection runs on affordable edge devices, flagged events are verified by remote loss‑prevention specialists. Zero distraction for your floor staff.</p>
+    <h1>Your team should focus on customers, not surveillance monitors. <span class="hero-highlight">ShrinkHalt AI + human reviewers</span> handle loss prevention in the background.</h1>
+    <p>Hybrid system: skeleton‑based action detection runs on affordable edge devices, flagged events are verified by remote loss‑prevention specialists. Zero distraction for your floor staff.</p>
   </div>
 
   <div class="container" id="problem">
@@ -457,6 +461,17 @@
     </div>
   </div>
 
+  <!-- Technology section with dedicated anchor -->
+  <div class="container" id="technology">
+    <div class="badge">Technical foundation</div>
+    <h2>Edge‑native architecture validated by real‑world benchmarks</h2>
+    <p class="section-subhead">Our detection engine is designed from the ground up for low‑cost edge hardware and hybrid human‑AI operation.</p>
+    <div style="background: #f1f7f5; border-radius: 32px; padding: 32px 28px; margin: 32px 0 24px; border: 1px solid #ddebe6;">
+      <p style="margin-bottom: 16px; font-weight: 500;">The core AI is a Temporal Convolutional Network (sub‑1M parameters) with view‑adaptive conditioning, achieving <strong>0.9661 weighted F1</strong> on a challenging held‑out test set (27.5k real‑world pose sequences). Feature engineering uses skeleton‑based kinematics, enabling robust edge deployment on hardware like Jetson Orin Nano.</p>
+      <p style="color: #2b5e72;">The system classifies 2‑second pose windows into four operationally relevant categories: <strong>Floor Activity, Consumption, Concealment in Bag, On‑Body Concealment</strong>. This taxonomy was optimized to balance detection precision with real‑world loss prevention workflows. (Reference: Edge‑Native Action Triage, 2025)</p>
+    </div>
+  </div>
+
   <div class="container">
     <div class="badge">Process</div>
     <h2>How ShrinkHalt delivers verified alerts</h2>
@@ -523,32 +538,15 @@
       </div>
     </div>
   </div>
-
-  <div class="container" style="margin: 24px auto 40px;">
-    <div style="background: #f1f7f5; border-radius: 32px; padding: 28px 32px; border: 1px solid #ddebe6;">
-      <div class="badge" style="margin-bottom: 12px;">Benchmark‑informed design</div>
-      <p style="font-size: 0.9rem; color: #1a5c6e;">The core detection engine is a Temporal Convolutional Network (sub‑1M parameters) with view‑adaptive conditioning, achieving 0.9661 weighted F1 on a challenging held‑out test set (27.5k real‑world pose sequences). Feature engineering uses skeleton‑based kinematics, enabling robust edge deployment on low‑cost hardware. (Reference: Edge‑Native Action Triage, 2025)</p>
-    </div>
-  </div>
 </main>
 
 <footer>
   <div class="container">
-    <div class="footer-flex">
-      <div>
-        <div class="footer-logo">ShrinkHalt AI</div>
-        <p style="margin-top: 12px; max-width: 240px; font-size: 0.8rem; opacity: 0.85;">AI‑powered detection + remote human verification — loss prevention without distraction.</p>
-      </div>
-      <div>
-        <strong>Contact</strong><br>
-        <span class="contact-text">3400 COTTAGE WAY, STE G2<br>SACRAMENTO, CA 95825</span><br>
-        <span class="contact-text" style="margin-top: 8px; display: inline-block;">hello@shrinkhalt.ai</span>
-      </div>
-      <div>
-        <strong>Overview</strong><br>
-        <span class="contact-text">Edge AI detection</span><br>
-        <span class="contact-text">Remote review team</span><br>
-        <span class="contact-text">Verified alerts</span>
+    <div class="footer-simple">
+      <div class="footer-logo">ShrinkHalt AI</div>
+      <div class="footer-address">
+        3400 COTTAGE WAY, STE G2<br>
+        SACRAMENTO, CA 95825
       </div>
     </div>
     <div class="footer-note">
